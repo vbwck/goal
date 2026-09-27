@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    margin: 0;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  .goal {
+    background: linear-gradient(90deg, #1a0033, #2b0052);
+    border: 2px solid #a855f7;
+    border-radius: 16px;
+    padding: 12px 24px;
+    color: white;
+    box-shadow: 0 0 20px #a855f7, 0 0 40px #7c3aed;
+    animation: float 3s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .bar {
+    width: 180px;
+    height: 12px;
+    background: #1e1e2f;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .fill {
+    height: 100%;
+    width: 5.5%;
+    background: linear-gradient(90deg, #c084fc, #60a5fa);
+    border-radius: 10px;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+</style>
+</head>
+<body>
+  <div class="goal">
+    <div>150 грн</div>
+    <div>на МАКАФОН 6%</div>
+    <div class="bar"><div class="fill"></div></div>
+    <div>2700 грн</div>
+  </div>
+</body>
+</html>
