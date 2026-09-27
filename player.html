@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -25,6 +26,8 @@ body {
     letter-spacing: 2px;
 
     text-shadow: 0 0 12px rgba(180,100,255,.8);
+
+    animation: textGlow 5s ease-in-out infinite;
 }
 
 .icon {
@@ -47,6 +50,34 @@ body {
 
     box-shadow:
         0 0 18px rgba(150,70,255,.55);
+
+    animation: iconFloat 4s ease-in-out infinite;
+}
+
+/* Медленное свечение текста */
+@keyframes textGlow {
+    0%, 100% {
+        opacity: 0.88;
+        text-shadow: 0 0 8px rgba(180,100,255,.45);
+    }
+
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 18px rgba(190,120,255,.9);
+    }
+}
+
+/* Лёгкое движение иконки */
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+        box-shadow: 0 0 15px rgba(150,70,255,.45);
+    }
+
+    50% {
+        transform: translateY(-2px);
+        box-shadow: 0 0 23px rgba(170,90,255,.7);
+    }
 }
 </style>
 </head>
@@ -60,3 +91,4 @@ body {
 
 </body>
 </html>
+```
