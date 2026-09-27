@@ -6,156 +6,197 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-    * {
-        box-sizing: border-box;
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.goal {
+    width: 520px;
+    padding: 13px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    background: rgba(8, 8, 14, 0.94);
+    border: 1px solid rgba(168, 85, 247, 0.55);
+    border-radius: 10px;
+
+    color: white;
+
+    box-shadow:
+        0 0 15px rgba(124, 58, 237, 0.20),
+        inset 0 0 18px rgba(168, 85, 247, 0.04);
+
+    animation: entrance 0.6s ease-out;
+}
+
+/* LOGO */
+.logo {
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #a855f7;
+}
+
+/* MAIN TEXT */
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    white-space: nowrap;
+}
+
+.label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #a855f7;
+    text-transform: uppercase;
+}
+
+.amount {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* PROGRESS */
+.bar {
+    flex: 1;
+    min-width: 120px;
+    height: 9px;
+
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow:
+        inset 0 1px 3px rgba(0,0,0,0.7);
+}
+
+.fill {
+    width: 5.56%;
+    height: 100%;
+
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #7c3aed,
+        #a855f7,
+        #6366f1,
+        #a855f7
+    );
+
+    background-size: 250% 100%;
+
+    box-shadow:
+        0 0 8px rgba(168,85,247,0.8);
+
+    animation:
+        gradient 2.5s linear infinite,
+        glow 2s ease-in-out infinite;
+}
+
+/* Блик */
+.fill::after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: -60px;
+
+    width: 55px;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.9),
+        transparent
+    );
+
+    animation: shine 2.2s ease-in-out infinite;
+}
+
+/* PERCENT */
+.percent {
+    min-width: 38px;
+
+    font-size: 13px;
+    font-weight: 800;
+    text-align: right;
+
+    color: #c084fc;
+}
+
+/* ANIMATIONS */
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
     }
 
-    html, body {
-        margin: 0;
-        padding: 0;
-        background: transparent;
-        overflow: hidden;
-        font-family: Arial, sans-serif;
+    100% {
+        background-position: 250% 50%;
+    }
+}
+
+@keyframes shine {
+    0% {
+        left: -60px;
     }
 
-    .goal {
-        width: 520px;
-        padding: 14px 20px;
-        display: flex;
-        align-items: center;
-        gap: 14px;
+    65%, 100% {
+        left: 110%;
+    }
+}
 
-        color: #fff;
-        background: rgba(15, 15, 25, 0.92);
-        border: 1px solid rgba(180, 100, 255, 0.7);
-        border-radius: 14px;
-
-        box-shadow:
-            0 0 12px rgba(170, 70, 255, 0.35),
-            inset 0 0 20px rgba(170, 70, 255, 0.06);
-
-        animation: appear 0.7s ease-out;
+@keyframes glow {
+    0%, 100% {
+        filter: brightness(1);
     }
 
-    .title {
-        font-size: 17px;
-        font-weight: 700;
-        white-space: nowrap;
+    50% {
+        filter: brightness(1.25);
+    }
+}
+
+@keyframes entrance {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
     }
 
-    .amount {
-        font-size: 15px;
-        color: #cfcfcf;
-        white-space: nowrap;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    .percent {
-        font-size: 15px;
-        font-weight: 700;
-        color: #c084fc;
-        min-width: 42px;
-    }
-
-    .bar {
-        flex: 1;
-        height: 11px;
-        background: rgba(255,255,255,0.10);
-        border-radius: 20px;
-        overflow: hidden;
-        position: relative;
-        box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
-    }
-
-    .fill {
-        width: 5.56%;
-        height: 100%;
-        border-radius: 20px;
-        position: relative;
-
-        background: linear-gradient(
-            90deg,
-            #8b5cf6,
-            #c084fc,
-            #60a5fa,
-            #c084fc,
-            #8b5cf6
-        );
-
-        background-size: 250% 100%;
-
-        animation:
-            shine 2.5s linear infinite,
-            pulse 2s ease-in-out infinite;
-    }
-
-    /* Бегущий блик */
+@media (prefers-reduced-motion: reduce) {
+    .goal,
+    .fill,
     .fill::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -80px;
-        width: 70px;
-        height: 100%;
-
-        background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,0.9),
-            transparent
-        );
-
-        animation: sweep 2.2s ease-in-out infinite;
+        animation: none;
     }
-
-    @keyframes shine {
-        0% {
-            background-position: 0% 50%;
-        }
-
-        100% {
-            background-position: 250% 50%;
-        }
-    }
-
-    @keyframes sweep {
-        0% {
-            left: -80px;
-        }
-
-        60%, 100% {
-            left: 110%;
-        }
-    }
-
-    @keyframes pulse {
-        0%, 100% {
-            filter: brightness(1);
-        }
-
-        50% {
-            filter: brightness(1.25);
-        }
-    }
-
-    @keyframes appear {
-        from {
-            opacity: 0;
-            transform: translateY(8px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .goal,
-        .fill,
-        .fill::after {
-            animation: none;
-        }
-    }
+}
 </style>
 </head>
 
@@ -163,15 +204,23 @@
 
 <div class="goal">
 
-    <div class="title">🎤 МАКАФОН</div>
+    <div class="logo">
+        BULKA<span>GAMING</span>
+    </div>
 
-    <div class="amount">
-        150 / 2700 грн
+    <div class="info">
+        <div class="label">🎤 МАКАФОН</div>
+        <div class="amount">150 / 2700 грн</div>
     </div>
 
     <div class="bar">
         <div class="fill"></div>
     </div>
 
-    <d
+    <div class="percent">5.6%</div>
+
+</div>
+
+</body>
+</html>
 ```
