@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -44,13 +44,17 @@ body {
         #c06cff
     );
 
-    animation: iconColor 6s ease-in-out infinite;
+    animation: iconColor 14s ease-in-out infinite;
 
     box-shadow:
-        0 0 15px rgba(150,70,255,.6);
+        0 0 15px rgba(150,70,255,.55);
 }
 
-/* ТЕКСТ — переливание свечения */
+
+/* =========================
+   АНИМАЦИЯ ТЕКСТА
+   ========================= */
+
 @keyframes textGlow {
 
     0% {
@@ -84,34 +88,44 @@ body {
     }
 }
 
-/* ИКОНКА — меняет цвет */
+
+/* =========================
+   ПЛАВНАЯ АНИМАЦИЯ ИКОНКИ
+   ========================= */
+
 @keyframes iconColor {
 
     0% {
         background: linear-gradient(135deg,#6f2cff,#b75cff);
-        box-shadow: 0 0 15px rgba(140,60,255,.6);
+        box-shadow: 0 0 15px rgba(140,60,255,.55);
     }
 
-    25% {
-        background: linear-gradient(135deg,#b52cff,#ff62c4);
-        box-shadow: 0 0 20px rgba(255,70,190,.65);
+    20% {
+        background: linear-gradient(135deg,#8f38ee,#d65cdb);
+        box-shadow: 0 0 17px rgba(180,70,230,.58);
     }
 
-    50% {
-        background: linear-gradient(135deg,#ff9d00,#ffe44d);
-        box-shadow: 0 0 24px rgba(255,190,30,.8);
+    40% {
+        background: linear-gradient(135deg,#d85ab7,#f58b72);
+        box-shadow: 0 0 19px rgba(240,110,150,.62);
     }
 
-    75% {
-        background: linear-gradient(135deg,#b9ff28,#f2ff72);
-        box-shadow: 0 0 24px rgba(200,255,50,.75);
+    60% {
+        background: linear-gradient(135deg,#f3a52d,#ffe05a);
+        box-shadow: 0 0 21px rgba(255,190,40,.68);
+    }
+
+    80% {
+        background: linear-gradient(135deg,#c8f34a,#efff80);
+        box-shadow: 0 0 19px rgba(200,255,60,.62);
     }
 
     100% {
         background: linear-gradient(135deg,#6f2cff,#b75cff);
-        box-shadow: 0 0 15px rgba(140,60,255,.6);
+        box-shadow: 0 0 15px rgba(140,60,255,.55);
     }
 }
+
 </style>
 </head>
 
@@ -124,4 +138,4 @@ body {
 
 </body>
 </html>
-
+```
