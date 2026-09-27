@@ -21,170 +21,162 @@ html, body {
 .goal {
     position: relative;
     width: 1010px;
-    padding: 9px;
+    padding: 14px 18px 13px;
 
     background:
         linear-gradient(
             110deg,
-            rgba(18, 12, 35, 0.94),
-            rgba(42, 20, 65, 0.92),
-            rgba(15, 18, 42, 0.94),
-            rgba(48, 22, 72, 0.92)
+            rgba(20, 12, 38, 0.96),
+            rgba(48, 20, 72, 0.94),
+            rgba(17, 20, 48, 0.96),
+            rgba(48, 20, 72, 0.94)
         );
 
     background-size: 300% 300%;
 
-    border: 1px solid rgba(192, 132, 252, 0.55);
+    border: 1px solid rgba(192, 132, 252, 0.5);
     border-radius: 14px;
 
     box-shadow:
-        0 0 25px rgba(168, 85, 247, 0.25),
-        inset 0 0 22px rgba(192, 132, 252, 0.08);
+        0 0 28px rgba(168, 85, 247, 0.25),
+        inset 0 0 25px rgba(192, 132, 252, 0.07);
 
-    animation:
-        backgroundMove 8s ease infinite,
-        blockPulse 4s ease-in-out infinite,
-        appear 0.6s ease-out;
+    animation: backgroundMove 9s ease infinite;
 }
 
-/* Мягкое движущееся свечение фона */
+/* мягкое движение света на фоне */
 
 .goal::before {
     content: "";
-
     position: absolute;
-    width: 420px;
+
+    width: 500px;
     height: 180px;
 
-    left: -100px;
-    top: -80px;
+    left: -120px;
+    top: -90px;
 
     background: radial-gradient(
         ellipse,
-        rgba(192, 132, 252, 0.20),
-        rgba(139, 92, 246, 0.08),
+        rgba(192,132,252,0.20),
         transparent 70%
     );
 
     filter: blur(25px);
 
-    animation: glowMove 6s ease-in-out infinite alternate;
+    animation: lightMove 7s ease-in-out infinite alternate;
 
     pointer-events: none;
 }
 
-.goal::after {
-    content: "";
+/* Верхняя строка */
 
-    position: absolute;
-    width: 350px;
-    height: 160px;
-
-    right: -100px;
-    bottom: -80px;
-
-    background: radial-gradient(
-        ellipse,
-        rgba(99, 102, 241, 0.18),
-        transparent 70%
-    );
-
-    filter: blur(25px);
-
-    animation: glowMove2 7s ease-in-out infinite alternate;
-
-    pointer-events: none;
-}
-
-/* Верх */
-
-.header {
+.info {
     position: relative;
     z-index: 2;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
-    padding: 0 5px 8px;
+    margin-bottom: 11px;
 }
 
-.brand {
-    font-size: 11px;
+.money {
+    font-size: 24px;
     font-weight: 900;
-    letter-spacing: 1.6px;
-    color: #fff;
 
-    text-shadow: 0 0 8px rgba(255,255,255,0.25);
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.25);
 }
 
-.brand span {
+.current {
     color: #c084fc;
 }
 
-.title {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    color: #880;
-
-    text-shadow:
-        0 0 8px rgba(192,132,252,0.45);
+.target {
+    color: #ffffff;
 }
 
-/* BAR */
+.label {
+    font-size: 17px;
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    color: #ffffff;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 12px rgba(192,132,252,0.55);
+}
+
+.percent {
+    font-size: 23px;
+    font-weight: 900;
+
+    color: #d8b4fe;
+
+    text-shadow:
+        0 0 12px rgba(192,132,252,0.75);
+}
+
+/* Полоса */
 
 .bar {
     position: relative;
     z-index: 2;
 
     width: 100%;
-    height: 54px;
+    height: 25px;
 
     background:
         linear-gradient(
             180deg,
             rgba(255,255,255,0.12),
-            rgba(255,255,255,0.055)
+            rgba(255,255,255,0.045)
         );
 
     border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 10px;
+
+    border-radius: 20px;
 
     overflow: hidden;
 
     box-shadow:
-        inset 0 1px 5px rgba(0,0,0,0.65),
-        0 0 10px rgba(168,85,247,0.08);
+        inset 0 1px 5px rgba(0,0,0,0.7);
 }
 
-/* Заполнение */
+/* 150 / 2700 = 5.56% */
 
 .fill {
     position: absolute;
+
     left: 0;
     top: 0;
     bottom: 0;
 
-    width: 5.9%;
+    width: 5.56%;
 
-    border-radius: 9px;
+    border-radius: 20px;
 
     background:
         linear-gradient(
-            100deg,
-            #6d28d9,
-            #8b5cf6,
-            #c084fc,
-            #6366f1,
-            #a855f7
+            90deg,
+            #7c3aed,
+            #a855f7,
+            #d8b4fe,
+            #8b5cf6
         );
 
     background-size: 300% 100%;
 
     box-shadow:
-        0 0 14px rgba(168,85,247,0.85),
-        5px 0 20px rgba(124,58,237,0.45);
+        0 0 15px rgba(168,85,247,0.9),
+        5px 0 20px rgba(124,58,237,0.55);
 
     animation: gradient 3s linear infinite;
 }
@@ -195,8 +187,9 @@ html, body {
     content: "";
 
     position: absolute;
+
     top: 0;
-    left: -90px;
+    left: -100px;
 
     width: 90px;
     height: 100%;
@@ -204,80 +197,11 @@ html, body {
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255,255,255,0.8),
+        rgba(255,255,255,0.85),
         transparent
     );
 
-    animation: shine 2.5s ease-in-out infinite;
-}
-
-/* Текст */
-
-.content {
-    position: absolute;
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    z-index: 5;
-
-    pointer-events: none;
-
-    text-shadow:
-        0 2px 6px rgba(0,0,0,0.95),
-        0 0 12px rgba(0,0,0,0.9);
-}
-
-.amount {
-    font-size: 23px;
-    font-weight: 900;
-    letter-spacing: 0.3px;
-
-    color: #fff;
-}
-
-.current {
-    color: #ffffff;
-}
-
-.slash {
-    margin: 0 8px;
-    color: rgba(255,255,255,0.55);
-}
-
-.target {
-    color: rgba(255,255,255,0.9);
-}
-
-/* Нижняя строка */
-
-.footer {
-    position: relative;
-    z-index: 2;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 7px 5px 0;
-}
-
-.support {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: rgba(255,255,255,0.65);
-}
-
-.percent {
-    font-size: 13px;
-    font-weight: 900;
-    color: #d8b4fe;
-
-    text-shadow:
-        0 0 8px rgba(192,132,252,0.55);
+    animation: shine 2.7s ease-in-out infinite;
 }
 
 /* Анимации */
@@ -294,7 +218,7 @@ html, body {
 
 @keyframes shine {
     0% {
-        left: -90px;
+        left: -100px;
     }
 
     65%,
@@ -317,54 +241,15 @@ html, body {
     }
 }
 
-@keyframes glowMove {
+@keyframes lightMove {
     from {
-        transform: translateX(0) translateY(0);
-        opacity: 0.65;
-    }
-
-    to {
-        transform: translateX(650px) translateY(70px);
-        opacity: 1;
-    }
-}
-
-@keyframes glowMove2 {
-    from {
-        transform: translateX(0) translateY(0);
+        transform: translateX(0);
         opacity: 0.5;
     }
 
     to {
-        transform: translateX(-500px) translateY(-50px);
-        opacity: 0.9;
-    }
-}
-
-@keyframes blockPulse {
-    0%,
-    100% {
-        box-shadow:
-            0 0 25px rgba(168,85,247,0.22),
-            inset 0 0 22px rgba(192,132,252,0.07);
-    }
-
-    50% {
-        box-shadow:
-            0 0 34px rgba(168,85,247,0.34),
-            inset 0 0 25px rgba(192,132,252,0.11);
-    }
-}
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-
-    to {
+        transform: translateX(650px);
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
@@ -372,8 +257,7 @@ html, body {
     .goal,
     .fill,
     .fill::after,
-    .goal::before,
-    .goal::after {
+    .goal::before {
         animation: none;
     }
 }
@@ -384,44 +268,28 @@ html, body {
 
 <div class="goal">
 
-    <div class="header">
+    <div class="info">
 
-        <div class="brand">
-            BULKA<span>GAMING</span>
+        <div class="money">
+            <span class="current">150 грн</span>
         </div>
 
-        <div class="title">
-            🎤НА НОВЫЙ МАКАФОН 🎤
+        <div class="label">
+            🎤 НА МИКРОФОН
+        </div>
+
+        <div class="money">
+            <span class="target">2700 грн</span>
+        </div>
+
+        <div class="percent">
+            5.6%
         </div>
 
     </div>
 
     <div class="bar">
-
         <div class="fill"></div>
-
-        <div class="content">
-
-            <div class="amount">
-                <span class="current">150 грн</span>
-                <span class="slash">/</span>
-                <span class="target">2700 грн</span>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="footer">
-
-        <div class="support">
-            ПОДДЕРЖКА СТРИМА
-        </div>
-
-        <div class="percent">
-            5.9%
-        </div>
-
     </div>
 
 </div>
