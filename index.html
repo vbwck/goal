@@ -18,188 +18,188 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.donation {
+.goal {
     width: 560px;
-    padding: 14px 18px 15px;
+    padding: 10px;
 
-    background: linear-gradient(
-        135deg,
-        rgba(12, 12, 20, 0.96),
-        rgba(20, 14, 32, 0.94)
-    );
+    background: rgba(8, 8, 14, 0.88);
 
-    border: 1px solid rgba(168, 85, 247, 0.45);
-    border-radius: 12px;
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    border-radius: 13px;
 
     box-shadow:
-        0 0 25px rgba(124, 58, 237, 0.15),
-        inset 0 0 25px rgba(168, 85, 247, 0.035);
+        0 0 20px rgba(124, 58, 237, 0.14),
+        inset 0 0 18px rgba(168, 85, 247, 0.035);
 
-    color: #fff;
-
-    animation: enter 0.6s ease-out;
+    animation: blockPulse 4s ease-in-out infinite,
+               appear 0.6s ease-out;
 }
 
-/* Верхняя строка */
+/* Верх */
 
-.top {
+.header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 
-    margin-bottom: 10px;
+    padding: 0 4px 7px;
 }
 
 .brand {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 900;
-    letter-spacing: 1.8px;
-}
-
-.brand-dot {
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-    background: #a855f7;
-
-    box-shadow:
-        0 0 8px #a855f7,
-        0 0 16px rgba(168, 85, 247, 0.7);
-
-    animation: dotPulse 2s ease-in-out infinite;
+    letter-spacing: 1.6px;
+    color: #fff;
 }
 
 .brand span {
     color: #a855f7;
 }
 
-.goal-title {
-    font-size: 11px;
+.title {
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 1.3px;
-    color: #aaa;
-
-    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #888;
 }
 
-/* Сумма */
+/* BAR */
 
-.amount-row {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-
-    margin-bottom: 9px;
-}
-
-.current {
-    font-size: 23px;
-    font-weight: 900;
-    letter-spacing: -0.5px;
-}
-
-.separator {
-    color: #555;
-    font-size: 17px;
-}
-
-.target {
-    font-size: 14px;
-    color: #999;
-    font-weight: 600;
-}
-
-/* Полоса */
-
-.progress-wrap {
+.bar {
     position: relative;
-    width: 100%;
-}
 
-.progress {
     width: 100%;
-    height: 8px;
+    height: 52px;
 
-    background: rgba(255,255,255,0.075);
-    border-radius: 20px;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.035)
+        );
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 9px;
 
     overflow: hidden;
 
     box-shadow:
-        inset 0 1px 3px rgba(0,0,0,0.8);
+        inset 0 1px 4px rgba(0,0,0,0.7);
 }
 
+/* Заполнение */
+
 .fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
     width: 5.56%;
-    height: 100%;
 
-    position: relative;
+    border-radius: 8px;
 
-    border-radius: 20px;
+    background:
+        linear-gradient(
+            100deg,
+            #6d28d9,
+            #8b5cf6,
+            #c084fc,
+            #6366f1,
+            #8b5cf6
+        );
 
-    background: linear-gradient(
-        90deg,
-        #6d28d9,
-        #8b5cf6,
-        #c084fc,
-        #6366f1
-    );
-
-    background-size: 250% 100%;
+    background-size: 300% 100%;
 
     box-shadow:
-        0 0 8px rgba(168,85,247,0.9),
-        0 0 18px rgba(124,58,237,0.45);
+        0 0 12px rgba(168,85,247,0.75),
+        4px 0 18px rgba(124,58,237,0.35);
 
     animation: gradient 3s linear infinite;
 }
 
-/* Бегущий блик */
+/* Блик внутри заполненной области */
 
 .fill::after {
     content: "";
 
     position: absolute;
     top: 0;
-    left: -70px;
+    left: -90px;
 
-    width: 65px;
+    width: 80px;
     height: 100%;
 
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255,255,255,0.95),
+        rgba(255,255,255,0.75),
         transparent
     );
 
-    animation: shine 2.8s ease-in-out infinite;
+    animation: shine 2.6s ease-in-out infinite;
+}
+
+/* Текст поверх */
+
+.content {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,0.9),
+        0 0 10px rgba(0,0,0,0.8);
+}
+
+.amount {
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: 0.2px;
+
+    color: #fff;
+}
+
+.current {
+    color: #fff;
+}
+
+.slash {
+    margin: 0 7px;
+    color: rgba(255,255,255,0.5);
+}
+
+.target {
+    color: rgba(255,255,255,0.82);
 }
 
 /* Нижняя строка */
 
-.bottom {
+.footer {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 
-    margin-top: 8px;
+    padding: 6px 4px 0;
 }
 
 .support {
-    font-size: 10px;
-    color: #777;
-    letter-spacing: 0.8px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #666;
 }
 
 .percent {
-    font-size: 12px;
-    font-weight: 800;
+    font-size: 11px;
+    font-weight: 900;
     color: #c084fc;
 }
 
@@ -211,35 +211,41 @@ html, body {
     }
 
     100% {
-        background-position: 250% 50%;
+        background-position: 300% 50%;
     }
 }
 
 @keyframes shine {
     0% {
-        left: -70px;
+        left: -90px;
     }
 
     65%,
     100% {
-        left: 110%;
+        left: 120%;
     }
 }
 
-@keyframes dotPulse {
+/* Лёгкое движение блока */
+
+@keyframes blockPulse {
     0%,
     100% {
-        opacity: 0.7;
-        transform: scale(1);
+        transform: translateY(0);
+        box-shadow:
+            0 0 20px rgba(124,58,237,0.14),
+            inset 0 0 18px rgba(168,85,247,0.035);
     }
 
     50% {
-        opacity: 1;
-        transform: scale(1.25);
+        transform: translateY(-2px);
+        box-shadow:
+            0 0 27px rgba(124,58,237,0.22),
+            inset 0 0 20px rgba(168,85,247,0.05);
     }
 }
 
-@keyframes enter {
+@keyframes appear {
     from {
         opacity: 0;
         transform: translateY(8px);
@@ -252,74 +258,12 @@ html, body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .donation,
+    .goal,
     .fill,
-    .fill::after,
-    .brand-dot {
+    .fill::after {
         animation: none;
     }
 }
 </style>
 </head>
-
-<body>
-
-<div class="donation">
-
-    <div class="top">
-
-        <div class="brand">
-            <div class="brand-dot"></div>
-            BULKA<span>GAMING</span>
-        </div>
-
-        <div class="goal-title">
-            🎤 МАКАФОН
-        </div>
-
-    </div>
-
-
-    <div class="amount-row">
-
-        <div class="current">
-            150 грн
-        </div>
-
-        <div class="separator">
-            /
-        </div>
-
-        <div class="target">
-            2700 грн
-        </div>
-
-    </div>
-
-
-    <div class="progress-wrap">
-
-        <div class="progress">
-            <div class="fill"></div>
-        </div>
-
-    </div>
-
-
-    <div class="bottom">
-
-        <div class="support">
-            ПОДДЕРЖКА СТРИМА
-        </div>
-
-        <div class="percent">
-            5.6%
-        </div>
-
-    </div>
-
-</div>
-
-</body>
-</html>
 ```
