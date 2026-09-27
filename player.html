@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -11,21 +11,52 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* ОСНОВНОЙ ПРОЗРАЧНЫЙ БЛОК */
+.now-playing-box {
+    width: 520px;
+    height: 125px;
+
+    position: relative;
+
+    padding: 8px 10px;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(180,100,255,.45);
+
+    box-shadow:
+        0 0 8px rgba(150,60,255,.45),
+        0 0 20px rgba(150,60,255,.25),
+        inset 0 0 15px rgba(150,60,255,.08);
+
+    animation: neonPulse 7s ease-in-out infinite;
+
+    background: transparent;
+}
+
+
+/* ЗАГОЛОВОК */
 .now-playing {
     display: flex;
     align-items: center;
+    justify-content: center;
+
     gap: 12px;
-    width: fit-content;
-    padding: 6px 12px;
+
+    height: 40px;
 
     color: #fff;
+
     font-size: 20px;
     font-weight: 800;
+
     letter-spacing: 2px;
 
     animation: textGlow 6s ease-in-out infinite;
 }
 
+
+/* ИКОНКА */
 .icon {
     width: 38px;
     height: 38px;
@@ -52,7 +83,7 @@ body {
 
 
 /* =========================
-   АНИМАЦИЯ ТЕКСТА
+   СВЕЧЕНИЕ ТЕКСТА
    ========================= */
 
 @keyframes textGlow {
@@ -90,7 +121,7 @@ body {
 
 
 /* =========================
-   ПЛАВНАЯ АНИМАЦИЯ ИКОНКИ
+   ПЛАВНАЯ ИКОНКА
    ========================= */
 
 @keyframes iconColor {
@@ -111,31 +142,5 @@ body {
     }
 
     60% {
-        background: linear-gradient(135deg,#f3a52d,#ffe05a);
-        box-shadow: 0 0 21px rgba(255,190,40,.68);
-    }
+        background: linear-gradient(135deg,#f3a5
 
-    80% {
-        background: linear-gradient(135deg,#c8f34a,#efff80);
-        box-shadow: 0 0 19px rgba(200,255,60,.62);
-    }
-
-    100% {
-        background: linear-gradient(135deg,#6f2cff,#b75cff);
-        box-shadow: 0 0 15px rgba(140,60,255,.55);
-    }
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="now-playing">
-    <div class="icon">🎵</div>
-    <div>NOW PLAYING</div>
-</div>
-
-</body>
-</html>
-```
