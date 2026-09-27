@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -15,19 +15,15 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-
     width: fit-content;
-
     padding: 6px 12px;
 
-    color: white;
+    color: #fff;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 2px;
 
-    text-shadow: 0 0 12px rgba(180,100,255,.8);
-
-    animation: textGlow 5s ease-in-out infinite;
+    animation: textGlow 6s ease-in-out infinite;
 }
 
 .icon {
@@ -40,43 +36,80 @@ body {
 
     border-radius: 10px;
 
+    font-size: 20px;
+
     background: linear-gradient(
         135deg,
         #7d35ff,
         #c06cff
     );
 
-    font-size: 20px;
+    animation: iconColor 6s ease-in-out infinite;
 
     box-shadow:
-        0 0 18px rgba(150,70,255,.55);
-
-    animation: iconFloat 4s ease-in-out infinite;
+        0 0 15px rgba(150,70,255,.6);
 }
 
-/* Медленное свечение текста */
+/* ТЕКСТ — переливание свечения */
 @keyframes textGlow {
-    0%, 100% {
-        opacity: 0.88;
-        text-shadow: 0 0 8px rgba(180,100,255,.45);
+
+    0% {
+        text-shadow:
+            0 0 6px rgba(170,80,255,.7),
+            0 0 12px rgba(120,50,255,.4);
+    }
+
+    25% {
+        text-shadow:
+            0 0 7px rgba(255,80,190,.8),
+            0 0 16px rgba(255,60,180,.5);
     }
 
     50% {
-        opacity: 1;
-        text-shadow: 0 0 18px rgba(190,120,255,.9);
+        text-shadow:
+            0 0 8px rgba(255,210,60,.95),
+            0 0 20px rgba(255,190,30,.65);
+    }
+
+    75% {
+        text-shadow:
+            0 0 8px rgba(210,255,70,.9),
+            0 0 18px rgba(190,255,40,.55);
+    }
+
+    100% {
+        text-shadow:
+            0 0 6px rgba(170,80,255,.7),
+            0 0 12px rgba(120,50,255,.4);
     }
 }
 
-/* Лёгкое движение иконки */
-@keyframes iconFloat {
-    0%, 100% {
-        transform: translateY(0);
-        box-shadow: 0 0 15px rgba(150,70,255,.45);
+/* ИКОНКА — меняет цвет */
+@keyframes iconColor {
+
+    0% {
+        background: linear-gradient(135deg,#6f2cff,#b75cff);
+        box-shadow: 0 0 15px rgba(140,60,255,.6);
+    }
+
+    25% {
+        background: linear-gradient(135deg,#b52cff,#ff62c4);
+        box-shadow: 0 0 20px rgba(255,70,190,.65);
     }
 
     50% {
-        transform: translateY(-2px);
-        box-shadow: 0 0 23px rgba(170,90,255,.7);
+        background: linear-gradient(135deg,#ff9d00,#ffe44d);
+        box-shadow: 0 0 24px rgba(255,190,30,.8);
+    }
+
+    75% {
+        background: linear-gradient(135deg,#b9ff28,#f2ff72);
+        box-shadow: 0 0 24px rgba(200,255,50,.75);
+    }
+
+    100% {
+        background: linear-gradient(135deg,#6f2cff,#b75cff);
+        box-shadow: 0 0 15px rgba(140,60,255,.6);
     }
 }
 </style>
@@ -91,4 +124,4 @@ body {
 
 </body>
 </html>
-```
+
