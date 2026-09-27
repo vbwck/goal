@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: transparent;
+    font-family: Arial, sans-serif;
+}
+
+/* ОСНОВНАЯ КАРТОЧКА */
+.music-card {
+    width: 620px;
+    height: 105px;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    padding: 15px 22px;
+
+    border-radius: 18px;
+
+    background:
+        radial-gradient(circle at 10% 50%, rgba(145, 70, 255, .28), transparent 35%),
+        linear-gradient(110deg, rgba(18, 12, 31, .96), rgba(35, 20, 58, .94));
+
+    border: 1px solid rgba(180, 120, 255, .25);
+
+    box-shadow:
+        0 0 25px rgba(130, 60, 255, .22),
+        inset 0 0 20px rgba(255,255,255,.03);
+
+    animation: glow 4s ease-in-out infinite;
+}
+
+/* ЛЁГКОЕ ДВИЖЕНИЕ ФОНА */
+.music-card::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+
+    left: -100px;
+    top: -70px;
+
+    background: radial-gradient(
+        circle,
+        rgba(170, 80, 255, .18),
+        transparent 70%
+    );
+
+    animation: moveGlow 5s ease-in-out infinite;
+}
+
+/* ИКОНКА */
+.icon {
+    position: relative;
+    z-index: 2;
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 27px;
+
+    background: linear-gradient(
+        135deg,
+        #7d35ff,
+        #c06cff
+    );
+
+    box-shadow:
+        0 0 18px rgba(150, 70, 255, .5);
+}
+
+/* ТЕКСТ */
+.text {
+    position: relative;
+    z-index: 2;
+
+    margin-left: 17px;
+
+    color: white;
+}
+
+.label {
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #c58cff;
+
+    margin-bottom: 6px;
+}
+
+.now-playing {
+    font-size: 19px;
+    font-weight: 700;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.15);
+}
+
+/* ЭКВАЛАЙЗЕР */
+.equalizer {
+    position: absolute;
+    right: 22px;
+    bottom: 18px;
+
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+
+    height: 20px;
+}
+
+.bar {
+    width: 3px;
+    height: 8px;
+
+    border-radius: 3px;
+
+    background: #b86cff;
+
+    box-shadow:
+        0 0 7px rgba(180, 90, 255, .7);
+
+    animation: equalizer .8s ease-in-out infinite alternate;
+}
+
+.bar:nth-child(2) { animation-delay: .15s; height: 14px; }
+.bar:nth-child(3) { animation-delay: .3s; height: 19px; }
+.bar:nth-child(4) { animation-delay: .45s; height: 11px; }
+.bar:nth-child(5) { animation-delay: .6s; height: 16px; }
+
+@keyframes equalizer {
+    from { transform: scaleY(.45); }
+    to   { transform: scaleY(1); }
+}
+
+@keyframes glow {
+    0%,100% {
+        box-shadow:
+            0 0 20px rgba(130, 60, 255, .18),
+            inset 0 0 20px rgba(255,255,255,.03);
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px rgba(130, 60, 255, .32),
+            inset 0 0 25px rgba(255,255,255,.04);
+    }
+}
+
+@keyframes moveGlow {
+    0%,100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(100px);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="music-card">
+
+    <div class="icon">🎵</div>
+
+    <div class="text">
+        <div class="label">NOW PLAYING</div>
+
+        <!-- ЗДЕСЬ БУДЕТ ТВОЙ ЗАХВАТ YOUTUBE MUSIC -->
+        <div class="now-playing">
+            ТЕКУЩИЙ ТРЕК
+        </div>
+    </div>
+
+    <div class="equalizer">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
