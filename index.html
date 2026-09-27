@@ -1,0 +1,177 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+    }
+
+    .goal {
+        width: 520px;
+        padding: 14px 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        color: #fff;
+        background: rgba(15, 15, 25, 0.92);
+        border: 1px solid rgba(180, 100, 255, 0.7);
+        border-radius: 14px;
+
+        box-shadow:
+            0 0 12px rgba(170, 70, 255, 0.35),
+            inset 0 0 20px rgba(170, 70, 255, 0.06);
+
+        animation: appear 0.7s ease-out;
+    }
+
+    .title {
+        font-size: 17px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .amount {
+        font-size: 15px;
+        color: #cfcfcf;
+        white-space: nowrap;
+    }
+
+    .percent {
+        font-size: 15px;
+        font-weight: 700;
+        color: #c084fc;
+        min-width: 42px;
+    }
+
+    .bar {
+        flex: 1;
+        height: 11px;
+        background: rgba(255,255,255,0.10);
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .fill {
+        width: 5.56%;
+        height: 100%;
+        border-radius: 20px;
+        position: relative;
+
+        background: linear-gradient(
+            90deg,
+            #8b5cf6,
+            #c084fc,
+            #60a5fa,
+            #c084fc,
+            #8b5cf6
+        );
+
+        background-size: 250% 100%;
+
+        animation:
+            shine 2.5s linear infinite,
+            pulse 2s ease-in-out infinite;
+    }
+
+    /* Бегущий блик */
+    .fill::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -80px;
+        width: 70px;
+        height: 100%;
+
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.9),
+            transparent
+        );
+
+        animation: sweep 2.2s ease-in-out infinite;
+    }
+
+    @keyframes shine {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        100% {
+            background-position: 250% 50%;
+        }
+    }
+
+    @keyframes sweep {
+        0% {
+            left: -80px;
+        }
+
+        60%, 100% {
+            left: 110%;
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            filter: brightness(1);
+        }
+
+        50% {
+            filter: brightness(1.25);
+        }
+    }
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .goal,
+        .fill,
+        .fill::after {
+            animation: none;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="goal">
+
+    <div class="title">🎤 МАКАФОН</div>
+
+    <div class="amount">
+        150 / 2700 грн
+    </div>
+
+    <div class="bar">
+        <div class="fill"></div>
+    </div>
+
+    <d
+```
