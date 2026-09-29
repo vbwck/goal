@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+
+<style>
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.wrap {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner {
+    position: relative;
+    height: 54px;
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    white-space: nowrap;
+
+    background: linear-gradient(
+        90deg,
+        rgba(10,7,15,.88),
+        rgba(45,14,57,.92),
+        rgba(10,7,15,.88)
+    );
+
+    border: 1px solid rgba(255,184,55,.8);
+    border-radius: 12px;
+
+    box-shadow:
+        0 0 8px rgba(255,165,35,.45),
+        0 0 18px rgba(155,55,255,.20);
+
+    overflow: hidden;
+}
+
+/* лёгкий проходящий блик */
+.banner::after {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -100px;
+    width: 45px;
+    height: 120px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.16),
+        transparent
+    );
+
+    transform: rotate(20deg);
+    animation: shine 7s infinite;
+}
+
+@keyframes shine {
+    0%, 70% { left: -100px; }
+    100% { left: calc(100% + 100px); }
+}
+
+.gift {
+    font-size: 27px;
+    filter: drop-shadow(0 0 6px #ff9d22);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.text {
+    position: relative;
+    z-index: 2;
+
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: .5px;
+
+    color: white;
+
+    text-shadow:
+        0 2px 2px #000,
+        0 0 7px rgba(255,255,255,.15);
+}
+
+.gold {
+    color: #ffc642;
+    text-shadow:
+        0 0 7px rgba(255,174,40,.6);
+}
+
+.eq {
+    color: #bc65ff;
+    margin: 0 7px;
+
+    text-shadow:
+        0 0 8px #8d35ff;
+}
+
+.music {
+    font-size: 26px;
+    color: #ffc642;
+
+    text-shadow:
+        0 0 7px #ff9f20;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    50% { transform: scale(1.08); }
+}
+
+@keyframes float {
+    50% { transform: translateY(-3px); }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+    <div class="banner">
+
+        <div class="gift">🎁</div>
+
+        <div class="text">
+            <span class="gold">1 ПОДАРОК</span>
+            <span class="eq">=</span>
+            <span>1 ЗАКАЗ ПЕСНИ</span>
+        </div>
+
+        <div class="music">♫</div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
