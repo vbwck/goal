@@ -19,96 +19,207 @@ html, body {
     font-family: Arial, sans-serif;
 }
 
-.ticker {
+/* ОСНОВНОЙ БАННЕР */
+
+.runbar {
+    position: relative;
+
     width: 100%;
     height: 55px;
+
     display: flex;
     align-items: center;
+    justify-content: center;
+
     overflow: hidden;
 
-    background: rgba(10, 10, 15, 0.88);
-    border-top: 2px solid #ff2d95;
-    border-bottom: 2px solid #7b2cff;
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(0, 180, 210, 0.13),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 50%,
+            rgba(150, 70, 220, 0.12),
+            transparent 35%
+        ),
+        rgba(9, 10, 16, 0.94);
+
+    border-top: 1px solid rgba(80, 210, 230, 0.65);
+    border-bottom: 1px solid rgba(160, 80, 220, 0.55);
 
     box-shadow:
-        0 0 10px rgba(255, 45, 149, 0.5),
-        0 0 20px rgba(123, 44, 255, 0.25);
+        inset 0 0 20px rgba(0, 0, 0, 0.45),
+        0 0 8px rgba(70, 190, 220, 0.20);
+
+    animation: softGlow 5s ease-in-out infinite;
 }
 
-.ticker-track {
+
+/* МЕДЛЕННЫЙ БЛИК */
+
+.runbar::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -35%;
+
+    width: 25%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.035),
+        rgba(90, 210, 230, 0.07),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    animation: shine 8s linear infinite;
+
+    pointer-events: none;
+}
+
+
+/* ЛЁГКАЯ НИЖНЯЯ ЛИНИЯ */
+
+.runbar::after {
+    content: "";
+
+    position: absolute;
+
+    left: 10%;
+    right: 10%;
+    bottom: 0;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(70, 210, 230, 0.7),
+        rgba(180, 80, 220, 0.6),
+        transparent
+    );
+
+    opacity: 0.7;
+}
+
+
+/* ТЕКСТ */
+
+.content {
+    position: relative;
+    z-index: 2;
+
     display: flex;
-    width: max-content;
-    animation: scroll 20s linear infinite;
-}
+    align-items: center;
+    justify-content: center;
 
-.ticker-content {
     white-space: nowrap;
-    font-size: 24px;
-    font-weight: 800;
-    color: white;
-    padding-right: 120px;
+
+    font-size: 21px;
+    font-weight: 700;
+
+    color: #f5f5f7;
 
     text-shadow:
-        0 0 5px #ffffff,
-        0 0 10px #ff2d95;
+        0 2px 4px rgba(0, 0, 0, 0.8);
+
+    padding: 0 20px;
 }
 
-.tiktok {
-    color: #5ee7ff;
 
-    text-shadow:
-        0 0 5px #5ee7ff,
-        0 0 12px #00d9ff;
-}
+/* РАЗДЕЛИТЕЛЬ */
 
 .separator {
-    color: #ffcf40;
-    padding: 0 35px;
+    margin: 0 20px;
+
+    color: #d4a84f;
+
+    font-size: 16px;
 
     text-shadow:
-        0 0 5px #ffcf40,
-        0 0 10px #ff9d00;
+        0 0 5px rgba(212, 168, 79, 0.35);
 }
 
-@keyframes scroll {
-    from {
-        transform: translateX(100vw);
+
+/* TIKTOK */
+
+.tiktok {
+    color: #72d9e4;
+
+    font-weight: 800;
+
+    text-shadow:
+        0 0 6px rgba(70, 190, 210, 0.25);
+}
+
+
+/* АНИМАЦИЯ САМОГО БЛОКА */
+
+@keyframes softGlow {
+
+    0%, 100% {
+        border-top-color: rgba(80, 210, 230, 0.55);
+        border-bottom-color: rgba(160, 80, 220, 0.45);
     }
 
-    to {
-        transform: translateX(-100%);
+    50% {
+        border-top-color: rgba(120, 220, 230, 0.75);
+        border-bottom-color: rgba(190, 110, 220, 0.65);
     }
 }
+
+
+/* БЛИК */
+
+@keyframes shine {
+
+    0% {
+        left: -35%;
+    }
+
+    45% {
+        left: -35%;
+    }
+
+    75% {
+        left: 115%;
+    }
+
+    100% {
+        left: 115%;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="ticker">
-    <div class="ticker-track">
-        <div class="ticker-content">
+<div class="runbar">
 
-            Поддержи лайком или подпиской
+    <div class="content">
 
-            <span class="separator">✦</span>
+        🎮 Поддержи лайком или подпиской
 
-            🎮 Мой TikTok аккаунт:
-            <span class="tiktok">tiktok.com/@bulkagaming</span>
+        <span class="separator">✦</span>
 
-            <span class="separator">✦</span>
+        TikTok:
+        &nbsp;<span class="tiktok">@bulkagaming</span>
 
-            Заходи
+        <span class="separator">✦</span>
 
-            <span class="separator">✦</span>
+        
 
-            Спасибо за просмотр и подписки <3
-            
-            
-            
-            
-
-        </div>
     </div>
+
 </div>
 
 </body>
