@@ -19,39 +19,19 @@ html, body {
 .player {
     position: relative;
     width: 350px;
-    height: 125px;
-    box-sizing: border-box;
-
-    border: 1px solid rgba(180,100,255,.5);
-    border-radius: 16px;
-
-    /* ТЁМНАЯ ПОЛУПРОЗРАЧНАЯ ПОДЛОЖКА */
-    background: linear-gradient(
-        90deg,
-        rgba(12,9,22,.92) 0%,
-        rgba(18,12,30,.82) 60%,
-        rgba(25,15,40,.65) 100%
-    );
-
-    box-shadow:
-        0 0 8px rgba(150,60,255,.4),
-        0 0 20px rgba(150,60,255,.2);
-
-    animation: neon 8s ease-in-out infinite;
+    height: 55px;
+    background: transparent;
 }
 
-/* NOW PLAYING */
+/* НАДПИСЬ */
 
 .now-playing {
     position: absolute;
     top: 8px;
     left: 0;
-    width: 100%;
-    height: 40px;
 
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 8px;
 
     color: white;
@@ -61,8 +41,8 @@ html, body {
     white-space: nowrap;
 
     text-shadow:
-        0 0 8px rgba(170,80,255,.8),
-        0 0 16px rgba(170,80,255,.4);
+        0 0 6px rgba(170,80,255,.8),
+        0 0 14px rgba(170,80,255,.5);
 
     animation: textGlow 6s ease-in-out infinite;
 }
@@ -76,119 +56,45 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
 
     border-radius: 9px;
     font-size: 19px;
 
-    background: linear-gradient(
-        135deg,
-        #6f2cff,
-        #b75cff
-    );
+    background: linear-gradient(135deg,#6f2cff,#b75cff);
 
-    box-shadow:
-        0 0 14px rgba(140,60,255,.55);
-
-    animation: iconColor 14s ease-in-out infinite;
+    box-shadow: 0 0 14px rgba(140,60,255,.55);
 }
 
-/* НЕОНОВАЯ РАМКА */
-
-@keyframes neon {
-    0%, 100% {
-        border-color: rgba(150,70,255,.35);
-        box-shadow:
-            0 0 7px rgba(150,60,255,.3),
-            0 0 17px rgba(150,60,255,.15);
-    }
-
-    50% {
-        border-color: rgba(255,210,60,.55);
-        box-shadow:
-            0 0 9px rgba(255,180,40,.5),
-            0 0 24px rgba(255,190,40,.25);
-    }
-}
-
-/* АНИМАЦИЯ ТЕКСТА */
+/* ПЛАВНАЯ АНИМАЦИЯ ЦВЕТА */
 
 @keyframes textGlow {
-    0% {
+    0%, 100% {
         text-shadow:
-            0 0 6px rgba(170,80,255,.7),
-            0 0 12px rgba(120,50,255,.4);
+            0 0 6px rgba(170,80,255,.8),
+            0 0 14px rgba(170,80,255,.5);
     }
 
-    25% {
+    33% {
         text-shadow:
-            0 0 7px rgba(255,80,190,.8),
-            0 0 16px rgba(255,60,180,.5);
+            0 0 8px rgba(255,90,190,.9),
+            0 0 18px rgba(255,60,180,.6);
     }
 
-    50% {
+    66% {
         text-shadow:
-            0 0 8px rgba(255,210,60,.95),
-            0 0 20px rgba(255,190,30,.65);
-    }
-
-    75% {
-        text-shadow:
-            0 0 8px rgba(210,255,70,.9),
-            0 0 18px rgba(190,255,40,.55);
-    }
-
-    100% {
-        text-shadow:
-            0 0 6px rgba(170,80,255,.7),
-            0 0 12px rgba(120,50,255,.4);
-    }
-}
-
-/* АНИМАЦИЯ ИКОНКИ */
-
-@keyframes iconColor {
-    0% {
-        background: linear-gradient(135deg,#6f2cff,#b75cff);
-        box-shadow: 0 0 14px rgba(140,60,255,.55);
-    }
-
-    20% {
-        background: linear-gradient(135deg,#8f38ee,#d65cdb);
-        box-shadow: 0 0 16px rgba(180,70,230,.58);
-    }
-
-    40% {
-        background: linear-gradient(135deg,#d85ab7,#f58b72);
-        box-shadow: 0 0 18px rgba(240,110,150,.62);
-    }
-
-    60% {
-        background: linear-gradient(135deg,#f3a52d,#ffe05a);
-        box-shadow: 0 0 20px rgba(255,190,40,.68);
-    }
-
-    80% {
-        background: linear-gradient(135deg,#c8f34a,#efff80);
-        box-shadow: 0 0 18px rgba(200,255,60,.62);
-    }
-
-    100% {
-        background: linear-gradient(135deg,#6f2cff,#b75cff);
-        box-shadow: 0 0 14px rgba(140,60,255,.55);
+            0 0 8px rgba(255,210,60,.9),
+            0 0 18px rgba(255,190,30,.6);
     }
 }
 </style>
 </head>
 
 <body>
-
-<div class="player">
-    <div class="now-playing">
-        <div class="icon">🎵</div>
-        <div>NOW PLAYING</div>
+    <div class="player">
+        <div class="now-playing">
+            <div class="icon">🎵</div>
+            <div>NOW PLAYING</div>
+        </div>
     </div>
-</div>
-
 </body>
 </html>
