@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 540px;
+    height: 110px;
+    overflow: hidden;
+    background: transparent;
+    font-family: Arial, sans-serif;
+}
+
+.scene {
+    position: relative;
+    width: 540px;
+    height: 110px;
+}
+
+.item {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding-left: 12px;
+    opacity: 0;
+    transform: translateX(-18px);
+    transition: opacity .55s ease, transform .55s ease;
+    pointer-events: none;
+}
+
+.item.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.logo {
+    width: 66px;
+    height: 66px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 12px rgba(80,160,255,.4));
+}
+
+.donatik-logo {
+    width: 66px;
+    height: 66px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 13px rgba(164,90,255,.55));
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 23px;
+    letter-spacing: .3px;
+    text-shadow: 0 2px 9px rgba(0,0,0,.8);
+}
+
+.subtitle {
+    font-size: 13px;
+    color: #aeb6c8;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.telegram .text {
+    color: #eaf6ff;
+}
+
+.donatik .text {
+    color: #d9c0ff;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <!-- TELEGRAM -->
+    <div class="item telegram active" id="telegram">
+
+        <svg class="logo" viewBox="0 0 100 100">
+            <defs>
+                <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#37C5F5"/>
+                    <stop offset="100%" stop-color="#1685D5"/>
+                </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="47" fill="url(#tg)"/>
+            <path d="M76 29 66 74c-.7 3.2-2.6 4-5.3 2.5L45 64.5l-7.6 7.3c-.9.9-1.6 1.6-3.3 1.6l1.1-15.9 28.9-26.1c1.3-1.1-.3-1.8-1.9-.7L26.5 52.9 11 48.1c-3.4-1.1-3.5-3.4.7-5.1l60.7-23.4c2.8-1 5.2.7 3.6 9.4Z"
+            fill="#fff"/>
+        </svg>
+
+        <div class="text">
+            <span>@bulkagaming</span>
+            <span class="subtitle">TELEGRAM CHANNEL</span>
+        </div>
+    </div>
+
+
+    <!-- DONATIK -->
+    <div class="item donatik" id="donatik">
+
+        <svg class="donatik-logo" viewBox="0 0 100 100">
+            <defs>
+                <linearGradient id="dn" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#D9A5FF"/>
+                    <stop offset="100%" stop-color="#8243E8"/>
+                </linearGradient>
+            </defs>
+            <path d="M50 5 91 28v44L50 95 9 72V28Z"
+                  fill="url(#dn)"/>
+            <path d="M35 28h17c17 0 27 9 27 22S69 72 52 72H35V28Zm13 12v20h5c8 0 13-3 13-10s-5-10-13-10h-5Z"
+                  fill="#fff"/>
+        </svg>
+
+        <div class="text">
+            <span>bulkagaming.donatik.ua</span>
+            <span class="subtitle">DONATIK • SUPPORT</span>
+        </div>
+    </div>
+
+</div>
+
+<script>
+const telegram = document.getElementById("telegram");
+const donatik = document.getElementById("donatik");
+
+let showTelegram = true;
+
+setInterval(() => {
+    showTelegram = !showTelegram;
+
+    telegram.classList.toggle("active", showTelegram);
+    donatik.classList.toggle("active", !showTelegram);
+
+}, 5000);
+</script>
+
+</body>
+</html>
